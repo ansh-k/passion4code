@@ -2,23 +2,28 @@
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
+# README
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Install Ruby with RVM
 
-* System dependencies
+`rvm install 2.5.1`
 
-* Configuration
+`rvm use 2.5.1 --default`
 
-* Database creation
+Install Bundler
 
-* Database initialization
+`gem install bundler`
 
-* How to run the test suite
+Now you can install gems and setup the DB
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install 
+rails db:setup
+```
 
-* Deployment instructions
+Start your server
 
-* ...
+`rails s`
+
