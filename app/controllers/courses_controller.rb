@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
 	end
 
   def show
-    course = Course.find_by(params[:id])
+    course = Course.find(params[:id])
     render json: {
         course: course.as_json }, status: :ok
   end

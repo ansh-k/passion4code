@@ -3,13 +3,13 @@ class VerticalsController < ApplicationController
   before_action :authorize_user!
   
 	def index
-		vericals = Vertical.all
+		verticals = Vertical.all
     render json: {
-        vericals: vericals.as_json }, status: :ok
+        verticals: verticals.as_json }, status: :ok
 	end
 
   def show
-    vertical = Vertical.find_by(params[:id])
+    vertical = Vertical.find(params[:id])
     render json: {
         vertical: vertical.as_json, vertical_categories: vertical.categories.as_json }, status: :ok
   end

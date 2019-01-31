@@ -9,8 +9,8 @@ class CategoriesController < ApplicationController
 	end
 
   def show
-    category = Category.find_by(params[:id])
+    category = Category.find(params[:id])
     render json: {
-        category: category.as_json, category_cources: category.courses.as_json }, status: :ok
+        category: category.as_json, category_courses: category.courses.as_json }, status: :ok
   end
 end
