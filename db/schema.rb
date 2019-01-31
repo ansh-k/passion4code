@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_083117) do
+ActiveRecord::Schema.define(version: 2019_01_31_095424) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.integer "vertical_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vertical_id"], name: "index_categories_on_vertical_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "author"
+    t.string "state"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_courses_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -18,6 +37,12 @@ ActiveRecord::Schema.define(version: 2019_01_31_083117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "verticals", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
